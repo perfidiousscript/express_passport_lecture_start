@@ -6,7 +6,7 @@ $(document).ready(function(){
         url: "/user",
         success: function(data){
             console.log(data);
-            $("#welcome").text("Welcome, " +  data.username);
+            $("#welcome").text("Welcome, " +  data.userfirstname + data.userlastname + "/n" + data.useremail);
         }
     });
 });

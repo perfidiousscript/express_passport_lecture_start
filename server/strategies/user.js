@@ -15,10 +15,10 @@ passport.deserializeUser(function(id, done){
 
 passport.use('local', new localStrategy({
     passReqToCallback: true,
-    usernameField: 'username'
-    }, function(req, username, password, done) {
+    usernameField: 'useremail'
+    }, function(req, useremail, password, done) {
 
-        User.findOne({username: username}, function (err, user) {
+        User.findOne({useremail: useremail}, function (err, user) {
             if (err) throw err;
             if (!user) return done(null, false, {message: 'Incorrect username and password'});
             user.comparePassword(password, function (err, isMatch) {
